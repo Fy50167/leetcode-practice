@@ -25,3 +25,6 @@ var canConstruct = function(ransomNote, magazine) {
 
     return true
 };
+
+// Time complexity: O(n + m);
+// Space complexity: O(m);
