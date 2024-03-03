@@ -11,3 +11,5 @@ var majorityElement = function(nums) {
 
      return candidate
 };
+
+// Boyer Moore voting; Other nums besides majority cancel current one out, so we decrement count
