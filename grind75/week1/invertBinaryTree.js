@@ -1,27 +1,14 @@
 var invertTree = function(root) {
-    const queue = [];
+    if (!root) return root
 
     // Perform depth-first search for values
-    const dfs = (root) => {
-        if (root === null) return
-        queue.push(root.val);
-        
-        dfs(root.left);
-        dfs(root.right);   
-    }
+    if (root === null) return
+    const temp = root.left;
+    root.left = root.right;
+    root.right = temp;
 
-    dfs(root);
-
-    // Perform inverted depth-first search to swap values
-    const idfs = (root) => {
-        if (root == null) return
-        root.val = queue.shift();
-
-        idfs(root.right);
-        idfs(root.left);
-    }   
-
-    idfs(root);
+    invertTree(root.left);
+    invertTree(root.right);
 
     return root; 
 };
